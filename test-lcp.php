@@ -1,6 +1,7 @@
 <?php
 $conf = [ 
-	'url'                          => 'PAGE_URL',
+	//'url' => 'https://www.petaindia.com/issues/animals-used-for-clothing/leather/',
+	'url'                          => 'https://www.animalrahat.com/',
 	'file'                         => '',
 	'test_original'                => 'f',
 	'remove_js'                    => 't',
@@ -73,6 +74,12 @@ exit; */
 		width: 70%;
 		padding: 4px;
 	}
+	input[value="t"] {
+        background: #ffdede;
+	}
+	input[value="f"] {
+        background: #c7ebb2;
+	}
 
 	.field {
 		background: beige;
@@ -81,6 +88,20 @@ exit; */
 		margin: 1px;
 	}
 </style>
+<script>
+function toggle(obj){
+    if( obj.value == 't' ){
+        obj.value = 'f'
+        return;
+    }
+    if( obj.value == 'f' ){
+        obj.value = 't'
+        return;
+    }
+
+}
+
+</script>
 <div class='' id='' style="display: grid;grid-template-columns: 50% 50%;">
 	<div class='' id=''>
 		<form method="POST" name="test-lcp" action="" class="frm" id="test-lcp" enctype="multipart/form-data">
@@ -90,7 +111,7 @@ exit; */
 						<label>
 							<?php echo $k ?>
 						</label><br>
-						<input type='text' name='conf[<?php echo $k ?>]' value='<?php echo $v ?>' class='' id=''></input>
+						<input type='text' name='conf[<?php echo $k ?>]' value='<?php echo $v ?>' class='' id='' onclick="toggle(this)"></input>
 					</div>
 
 				<?php } ?>
